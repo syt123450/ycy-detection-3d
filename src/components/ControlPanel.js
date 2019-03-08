@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import '../css/ControlPanel.css';
 import Button from 'react-toolbox/lib/button/Button';
+import {DataLookup} from '../utils/dataLookup';
+import {INIT_DATA} from '../utils/Constant';
 
 class ControlPanel extends Component {
 	
@@ -10,15 +12,7 @@ class ControlPanel extends Component {
 	
 	componentDidMount() {
 		
-		let context = this;
-		
-		let img = new Image();
-		img.onload = function () {
-			
-			context.drawImage(img);
-			
-		};
-		img.src = "./assets/img/ycy_1.jpg";
+		this.drawImage(INIT_DATA);
 		
 	}
 	
@@ -26,27 +20,33 @@ class ControlPanel extends Component {
 		this.props.selector.current.show();
 	};
 	
-	drawImage = (img) => {
+	drawImage = (dataID) => {
 		
-		let context = document.getElementById( "predictionResult" ).getContext( "2d" );
-		
-		context.clearRect( 0, 0, 208, 208 );
-		
-		context.drawImage( img, 0, 0 );
-		
-		let dataArray = context.getImageData( 0, 0, 208, 208 ).data;
-		
-		let array = [];
-		
-		for ( let i = 0; i < dataArray.length; i ++ ) {
+		let img = new Image();
+		img.onload = function () {
 			
-			if ( i % 4 !== 3 ) {
+			let context = document.getElementById( "predictionResult" ).getContext( "2d" );
+			
+			context.clearRect( 0, 0, 208, 208 );
+			
+			context.drawImage( img, 0, 0 );
+			
+			let dataArray = context.getImageData( 0, 0, 208, 208 ).data;
+			
+			let array = [];
+			
+			for ( let i = 0; i < dataArray.length; i ++ ) {
 				
-				array.push( ( dataArray[ i ] / 255 ).toFixed( 4 ) );
+				if ( i % 4 !== 3 ) {
+					
+					array.push( ( dataArray[ i ] / 255 ).toFixed( 4 ) );
+					
+				}
 				
 			}
 			
-		}
+		};
+		img.src = DataLookup[dataID].imageUrl;
 		
 	};
 	
@@ -75,6 +75,14 @@ class ControlPanel extends Component {
 		
 	};
 	
+	updatePanelImage = (dataID) => {
+		this.drawImage(dataID);
+	};
+	
+	reset = () => {
+		this.props.model.current.reset();
+	};
+	
 	render() {
 		return (
 			<div id="controlPanel">
@@ -93,7 +101,8 @@ class ControlPanel extends Component {
 				        icon='replay'
 				        label={"Reset"}
 				        raised
-				        accent />
+				        accent
+				        onClick={this.reset.bind(this)} />
 				
 			</div>
 		

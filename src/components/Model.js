@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import '../css/Model.css';
 import * as TSP from 'tensorspace';
 import { getDetectionBox } from '../utils/YoloUtils';
+import {DataLookup} from '../utils/dataLookup';
+import { INIT_DATA } from '../utils/Constant';
 
 class Model extends Component {
 	
@@ -14,9 +16,11 @@ class Model extends Component {
 		let model = new TSP.models.Sequential( modelContainer, {
 			
 			stats: true,
-			animeTime: 200
+			animeTime: 1000
 			
 		}  );
+		
+		context.modelRef = model;
 		
 		model.add( new TSP.layers.RGBInput( {
 			
@@ -155,6 +159,8 @@ class Model extends Component {
 			
 		} );
 		
+		context.outputDetectionLayer = outputDetectionLayer;
+		
 		model.add( outputDetectionLayer );
 		
 		model.load( {
@@ -174,11 +180,12 @@ class Model extends Component {
 		
 		model.init( function() {
 			
-			fetch('./assets/data/ycy_1.json').then(res => res.json()).then(data => {
+			fetch(DataLookup[INIT_DATA].dataUrl).then(res => res.json()).then(data => {
 				model.predict(data, function(result) {
 					
 					let boxes = getDetectionBox(result);
 					outputDetectionLayer.addRectangleList( boxes );
+					context.props.panel.current.drawPrediction(boxes);
 					
 					context.props.loading.current.hideLoading();
 					
@@ -189,6 +196,28 @@ class Model extends Component {
 		} );
 		
 	}
+	
+	predict = (dataID) => {
+		
+		let context = this;
+		
+		fetch(DataLookup[dataID].dataUrl).then(res => res.json()).then(data => {
+			context.modelRef.predict(data, function(result) {
+				
+				let boxes = getDetectionBox(result);
+				context.outputDetectionLayer.addRectangleList( boxes );
+				context.props.panel.current.drawPrediction(boxes);
+				
+			});
+			
+		});
+		
+		
+	};
+	
+	reset = () => {
+		this.modelRef.reset();
+	};
 	
 	render() {
 		return (

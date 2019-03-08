@@ -1,0 +1,1 @@
+export const INIT_DATA = "data1";

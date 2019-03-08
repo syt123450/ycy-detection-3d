@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import '../css/Selector.css';
 import Button from 'react-toolbox/lib/button/Button';
+import { DataLookup } from '../utils/dataLookup';
 
 class Selector extends Component {
 	
 	state = {
-		showSelector: false
+		showSelector: false,
+		selectedData: "data1"
 	};
 	
 	show = () => {
@@ -21,7 +23,17 @@ class Selector extends Component {
 	};
 	
 	predict = () => {
+		this.props.panel.current.updatePanelImage(this.state.selectedData);
+		this.props.model.current.predict(this.state.selectedData);
+		this.setState({
+			showSelector: false,
+		});
+	};
 	
+	handleSelect = (event) => {
+		this.setState({
+			selectedData: event.currentTarget.dataset.id
+		});
 	};
 	
 	render() {
@@ -33,23 +45,36 @@ class Selector extends Component {
 							<header>Select an Image to Predict</header>
 							<main>
 								<div>
-									<img id="data1" alt="predict data" src="./assets/img/ycy_1.jpg" />
+									<img data-id="data1"
+									     alt="predict data"
+									     src="./assets/img/ycy_1.jpg"
+									     onClick={this.handleSelect.bind(this)} />
 								</div>
 								<div>
-									<img id="data2" alt="predict data" src="./assets/img/ycy_1.jpg" />
+									<img data-id="data2"
+									     alt="predict data"
+									     src="./assets/img/ycy_2.jpg"
+									     onClick={this.handleSelect.bind(this)} />
 								</div>
 								<div>
-									<img id="data3" alt="predict data" src="./assets/img/ycy_1.jpg" />
+									<img data-id="data3"
+									     alt="predict data"
+									     src="./assets/img/ycy_1.jpg"
+									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
-									<img id="data4" alt="predict data" src="./assets/img/ycy_1.jpg" />
+									<img data-id="data4"
+									     alt="predict data"
+									     src="./assets/img/ycy_2.jpg"
+									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 							</main>
 							<footer>
 								<Button className={"execute-predict"}
 								        label={"Predict"}
 								        raised
-								        accent />
+								        accent
+								        onClick={this.predict.bind(this)} />
 								<Button className={"cancel-predict"}
 								        label={"Cancel"}
 								        raised

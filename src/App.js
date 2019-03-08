@@ -15,17 +15,18 @@ class App extends Component {
 		super(props);
 		this.loading = React.createRef();
 		this.selector = React.createRef();
-		// this.order = React.createRef();
+		this.model = React.createRef();
+		this.panel = React.createRef();
 	}
 	
 	render() {
 		return (
 			<ThemeProvider theme={theme}>
 				<div className={'container'}>
-					{/*<Loading ref={this.loading}/>*/}
-					{/*<Model loading={this.loading}/>*/}
-					<ControlPanel selector={this.selector}/>
-					<Selector ref={this.selector} />
+					<Loading ref={this.loading}/>
+					<Model ref={this.model} loading={this.loading} panel={this.panel} />
+					<ControlPanel ref={this.panel} selector={this.selector} model={this.model} />
+					<Selector ref={this.selector} model={this.model} panel={this.panel}/>
 				</div>
 			</ThemeProvider>
 		);
