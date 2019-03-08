@@ -59,13 +59,31 @@ class Selector extends Component {
 								<div>
 									<img data-id="data3"
 									     alt="predict data"
-									     src="./assets/img/ycy_1.jpg"
+									     src="./assets/img/ycy_3.jpg"
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data4"
 									     alt="predict data"
-									     src="./assets/img/ycy_2.jpg"
+									     src="./assets/img/ycy_4.jpg"
+									     onClick={this.handleSelect.bind(this)}  />
+								</div>
+								<div>
+									<img data-id="data5"
+									     alt="predict data"
+									     src="./assets/img/ycy_5.jpg"
+									     onClick={this.handleSelect.bind(this)}  />
+								</div>
+								<div>
+									<img data-id="data6"
+									     alt="predict data"
+									     src="./assets/img/ycy_6.jpg"
+									     onClick={this.handleSelect.bind(this)}  />
+								</div>
+								<div>
+									<img data-id="data7"
+									     alt="predict data"
+									     src="./assets/img/ycy_7.jpg"
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 							</main>

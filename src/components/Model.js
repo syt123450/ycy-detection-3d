@@ -15,7 +15,6 @@ class Model extends Component {
 		
 		let model = new TSP.models.Sequential( modelContainer, {
 			
-			stats: true,
 			animeTime: 1000
 			
 		}  );
