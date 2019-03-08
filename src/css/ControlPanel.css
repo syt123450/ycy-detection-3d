@@ -2,7 +2,7 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
-#controlPanel {
+.control-panel {
     background-color: rgba(2, 36, 47, 0.5);
     position: absolute;
     left: 0;
@@ -15,7 +15,7 @@
     z-index: 1;
 }
 
-.panelTitle {
+.panel-title {
     width: 100%;
     text-align: center;
     font-size: 24px;

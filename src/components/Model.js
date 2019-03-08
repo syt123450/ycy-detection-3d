@@ -7,7 +7,7 @@ import '../css/Model.css';
 import * as TSP from 'tensorspace';
 import { getDetectionBox } from '../utils/YoloUtils';
 import {DataLookup} from '../utils/dataLookup';
-import { INIT_DATA } from '../utils/Constant';
+import {INIT_DATA} from '../utils/Constant';
 
 class Model extends Component {
 	

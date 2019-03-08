@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 import '../css/Selector.css';
 import Button from 'react-toolbox/lib/button/Button';
-import { DataLookup } from '../utils/dataLookup';
+import {DataLookup} from '../utils/dataLookup';
 import {INIT_DATA} from '../utils/Constant';
 
 class Selector extends Component {

@@ -11,9 +11,7 @@ import {INIT_DATA} from '../utils/Constant';
 class ControlPanel extends Component {
 	
 	componentDidMount() {
-		
 		this.drawImage(INIT_DATA);
-		
 	}
 	
 	showSelector = () => {
@@ -25,50 +23,41 @@ class ControlPanel extends Component {
 		let img = new Image();
 		img.onload = function () {
 			
-			let context = document.getElementById( "predictionResult" ).getContext( "2d" );
+			let context = document.getElementById("predictionResult").getContext("2d");
+			context.clearRect(0, 0, 208, 208);
+			context.drawImage(img, 0, 0);
 			
-			context.clearRect( 0, 0, 208, 208 );
-			
-			context.drawImage( img, 0, 0 );
-			
-			let dataArray = context.getImageData( 0, 0, 208, 208 ).data;
+			let dataArray = context.getImageData(0, 0, 208, 208).data;
 			
 			let array = [];
 			
-			for ( let i = 0; i < dataArray.length; i ++ ) {
-				
-				if ( i % 4 !== 3 ) {
-					
-					array.push( ( dataArray[ i ] / 255 ).toFixed( 4 ) );
-					
+			for (let i = 0; i < dataArray.length; i++) {
+				if (i % 4 !== 3) {
+					array.push((dataArray[i] / 255).toFixed(4));
 				}
-				
 			}
 			
 		};
+		
 		img.src = DataLookup[dataID].imageUrl;
 		
 	};
 	
 	drawPrediction = (boxes) => {
 		
-		let ctx = document.getElementById( "predictionResult" ).getContext( "2d" );
+		let ctx = document.getElementById("predictionResult").getContext("2d");
 		
-		for ( let i = 0; i < boxes.length; i ++ ) {
+		for (let i = 0; i < boxes.length; i++) {
 			
-			let rectParameter = boxes[ i ];
+			let rectParameter = boxes[i];
 			
 			ctx.beginPath();
-			
 			ctx.rect(
-				
 				rectParameter.x / 2,
 				rectParameter.y / 2,
 				rectParameter.width / 2,
 				rectParameter.height / 2
-			
 			);
-			
 			ctx.stroke();
 			
 		}
@@ -85,9 +74,9 @@ class ControlPanel extends Component {
 	
 	render() {
 		return (
-			<div id="controlPanel">
+			<div className={"control-panel"}>
 				
-				<div className={"panelTitle"}>如何优雅地捕捉超越？</div>
+				<div className={"panel-title"}>如何优雅地捕捉超越？</div>
 				<div className={"sub-title"}>—— 3D神经网络 ——</div>
 				
 				<canvas id="predictionResult" width="208" height="208" />
