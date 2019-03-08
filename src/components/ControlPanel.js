@@ -10,6 +10,19 @@ import {INIT_DATA} from '../utils/Constant';
 
 class ControlPanel extends Component {
 	
+	state = {
+		initialHide: false,
+		panelHidden: false,
+	};
+	
+	componentWillMount() {
+		const isHidden = window.innerWidth < 500;
+		this.setState({
+			initialHide: isHidden,
+			panelHidden: isHidden,
+		});
+	}
+	
 	componentDidMount() {
 		this.drawImage(INIT_DATA);
 	}
@@ -19,6 +32,10 @@ class ControlPanel extends Component {
 	};
 	
 	drawImage = (dataID) => {
+		
+		if (this.state.panelHidden) {
+			return;
+		}
 		
 		let img = new Image();
 		img.onload = function() {
@@ -45,6 +62,10 @@ class ControlPanel extends Component {
 	};
 	
 	drawPrediction = (boxes) => {
+		
+		if (this.state.panelHidden) {
+			return;
+		}
 		
 		let ctx = document.getElementById('predictionResult').getContext('2d');
 		
@@ -73,30 +94,56 @@ class ControlPanel extends Component {
 		this.props.model.current.reset();
 	};
 	
+	hidePanel = () => {
+		this.setState({
+			panelHidden: true,
+		});
+	};
+	
+	showPanel = () => {
+		this.setState({
+			panelHidden: false,
+		});
+	};
+	
 	render() {
 		return (
-			<div className={'control-panel'}>
-				
-				<div className={'panel-title'}>如何优雅地捕捉超越？</div>
-				<div className={'sub-title'}>—— 3D神经网络 ——</div>
-				
-				<canvas id="predictionResult" width="208" height="208"/>
-				
-				<Button className={'select-trigger'}
-				        icon='add_photo_alternate'
-				        label={'新的超越'}
-				        raised
-				        accent
-				        onClick={this.showSelector.bind(this)}/>
-				<Button className={'reset-trigger'}
-				        icon='replay'
-				        label={'我想静静'}
-				        raised
-				        accent
-				        onClick={this.reset.bind(this)}/>
-			
+			<div>
+				{this.state.panelHidden ? <Button icon='menu'
+				                                  flat
+				                                  className={'menu-button'}
+				                                  onClick={this.showPanel.bind(
+					                                  this)}/> :
+					<div className={'control-panel'}>
+						
+						<div className={'panel-title'}>如何优雅地捕捉超越？</div>
+						<div className={'sub-title'}>—— 3D神经网络 ——</div>
+						
+						<canvas id="predictionResult" width="208" height="208"/>
+						
+						<Button className={'select-trigger'}
+						        icon='add_photo_alternate'
+						        label={'新的超越'}
+						        raised
+						        accent
+						        onClick={this.showSelector.bind(this)}/>
+						<Button className={'reset-trigger'}
+						        icon='replay'
+						        label={'我想静静'}
+						        raised
+						        accent
+						        onClick={this.reset.bind(this)}/>
+						
+						{this.state.initialHide
+							? <Button icon='close'
+							          floating
+							          mini
+							          className={'panel-close'}
+							          onClick={this.hidePanel.bind(this)}/>
+							: null}
+					
+					</div>}
 			</div>
-		
 		);
 	}
 }

@@ -51,8 +51,22 @@
     margin-left: 16px;
 }
 
-@media (max-width: 500px) {
-    .control-panel {
-        /*display: none;*/
-    }
+.panel-close {
+    margin-top: 40px;
+    margin-left: 43%;
+    color: #9fbec0 !important;
+    background-color: rgba(84, 140, 169, 0.4) !important;
+}
+
+.menu-button {
+    position: fixed;
+    z-index: 1;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    font-weight: bold;
+    min-width: 0;
+    text-align: center;
+    color: #D7FDFF !important;
+    background-color: rgba(84, 140, 169, 0.4) !important;
 }
