@@ -1,0 +1,31 @@
+.loading-pad {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.loading {
+    position: fixed;
+    width: 20%;
+    top: 200px;
+    margin-left: 40%;
+}
+
+.loading-label {
+    font-size: 24px;
+    line-height: 32px;
+    position: absolute;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.prediction-result {
+    margin-left: 21px;
+}

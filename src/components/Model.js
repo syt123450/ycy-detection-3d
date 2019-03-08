@@ -7,6 +7,8 @@ class Model extends Component {
 	
 	componentDidMount() {
 		
+		let context = this;
+		
 		let modelContainer = document.getElementById( "modelArea" );
 		
 		let model = new TSP.models.Sequential( modelContainer, {
@@ -162,6 +164,12 @@ class Model extends Component {
 			outputsName: [ "Maximum", "MaxPool", "Maximum_1", "MaxPool_1", "Maximum_2",
 				"MaxPool_2", "Maximum_3", "MaxPool_3", "Maximum_4", "MaxPool_4",
 				"Maximum_5", "MaxPool_5", "Maximum_6", "Maximum_7", "add_8" ],
+			onProgress: function(fraction) {
+				context.props.loading.current.updateProgress(fraction);
+			},
+			onComplete: function() {
+				context.props.loading.current.showCreation();
+			}
 		} );
 		
 		model.init( function() {
@@ -171,6 +179,8 @@ class Model extends Component {
 					
 					let boxes = getDetectionBox(result);
 					outputDetectionLayer.addRectangleList( boxes );
+					
+					context.props.loading.current.hideLoading();
 					
 				});
 				
