@@ -1,0 +1,25 @@
+#controlPanel {
+    background-color: rgba(2, 36, 47, 0.2);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    border-left: 1px solid #6597AF;
+    box-sizing: border-box;
+    overflow: auto;
+    z-index: 1;
+}
+
+.panelTitle {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #D6FDFF;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#predictionResult {
+    margin-left: 21px;
+}

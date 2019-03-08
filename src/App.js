@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import { Model } from './components/Model';
 import { Loading } from './components/Loading';
+import { ControlPanel } from './components/ControlPanel';
 
 class App extends Component {
 	
@@ -17,6 +18,7 @@ class App extends Component {
 			<div className={'container'}>
 				<Loading ref={this.loading} />
 				<Model loading={this.loading} />
+				<ControlPanel />
 			</div>
 		);
 	}
