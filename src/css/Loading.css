@@ -32,3 +32,10 @@
 .prediction-result {
     margin-left: 21px;
 }
+
+@media (max-width: 500px) {
+    .loading {
+        width: 60%;
+        margin-left: 20%;
+    }
+}
