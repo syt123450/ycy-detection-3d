@@ -32,9 +32,13 @@ class Selector extends Component {
 	};
 	
 	handleSelect = (event) => {
-		this.setState({
-			selectedData: event.currentTarget.dataset.id
-		});
+		const dataID = event.currentTarget.dataset.id;
+		if (dataID !== this.state.selectedData) {
+			this.setState({
+				selectedData: dataID
+			});
+		}
+		
 	};
 	
 	render() {
@@ -47,42 +51,56 @@ class Selector extends Component {
 							<main>
 								<div>
 									<img data-id="data1"
+									     className={this.state.selectedData === "data1" ?
+										     "selected-item" : "unselected-item"}
 									     alt="predict data"
 									     src={DataLookup["data1"].imageUrl}
 									     onClick={this.handleSelect.bind(this)} />
 								</div>
 								<div>
 									<img data-id="data2"
+									     className={this.state.selectedData === "data2" ?
+										     "selected-item" : "unselected-item"}
 									     alt="predict data"
 									     src={DataLookup["data2"].imageUrl}
 									     onClick={this.handleSelect.bind(this)} />
 								</div>
 								<div>
 									<img data-id="data3"
+									     className={this.state.selectedData === "data3" ?
+										     "selected-item" : "unselected-item"}
 									     alt="predict data"
 									     src={DataLookup["data3"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data4"
+									     className={this.state.selectedData === "data4" ?
+										     "selected-item" : "unselected-item"}
 									     alt="predict data"
 									     src={DataLookup["data4"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data5"
+									     className={this.state.selectedData === "data5" ?
+										     "selected-item" : "unselected-item"}
 									     alt="predict data"
 									     src={DataLookup["data5"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data6"
+									     className={this.state.selectedData === "data6" ?
+										     "selected-item" : "unselected-item"}
 									     alt="predict data"
 									     src={DataLookup["data6"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data7"
+									     className={this.state.selectedData === "data7" ?
+										     "selected-item" : "unselected-item"}
 									     alt="predict data"
 									     src={DataLookup["data7"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />

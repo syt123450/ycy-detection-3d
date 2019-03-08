@@ -102,3 +102,11 @@
     left: 0;
     transition: all 1s;
 }
+
+.selected-item {
+    border: 1px solid #6597AF;
+}
+
+.unselected-item {
+    border: 0;
+}
