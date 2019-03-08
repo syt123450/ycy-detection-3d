@@ -2,12 +2,13 @@ import React, {Component} from 'react';
 import '../css/Selector.css';
 import Button from 'react-toolbox/lib/button/Button';
 import { DataLookup } from '../utils/dataLookup';
+import {INIT_DATA} from '../utils/Constant';
 
 class Selector extends Component {
 	
 	state = {
 		showSelector: false,
-		selectedData: "data1"
+		selectedData: INIT_DATA
 	};
 	
 	show = () => {
@@ -47,43 +48,43 @@ class Selector extends Component {
 								<div>
 									<img data-id="data1"
 									     alt="predict data"
-									     src="./assets/img/ycy_1.jpg"
+									     src={DataLookup["data1"].imageUrl}
 									     onClick={this.handleSelect.bind(this)} />
 								</div>
 								<div>
 									<img data-id="data2"
 									     alt="predict data"
-									     src="./assets/img/ycy_2.jpg"
+									     src={DataLookup["data2"].imageUrl}
 									     onClick={this.handleSelect.bind(this)} />
 								</div>
 								<div>
 									<img data-id="data3"
 									     alt="predict data"
-									     src="./assets/img/ycy_3.jpg"
+									     src={DataLookup["data3"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data4"
 									     alt="predict data"
-									     src="./assets/img/ycy_4.jpg"
+									     src={DataLookup["data4"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data5"
 									     alt="predict data"
-									     src="./assets/img/ycy_5.jpg"
+									     src={DataLookup["data5"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data6"
 									     alt="predict data"
-									     src="./assets/img/ycy_6.jpg"
+									     src={DataLookup["data6"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 								<div>
 									<img data-id="data7"
 									     alt="predict data"
-									     src="./assets/img/ycy_7.jpg"
+									     src={DataLookup["data7"].imageUrl}
 									     onClick={this.handleSelect.bind(this)}  />
 								</div>
 							</main>
