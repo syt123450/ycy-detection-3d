@@ -14,7 +14,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.loading = React.createRef();
-		// this.exporter = React.createRef();
+		this.selector = React.createRef();
 		// this.order = React.createRef();
 	}
 	
@@ -24,8 +24,8 @@ class App extends Component {
 				<div className={'container'}>
 					{/*<Loading ref={this.loading}/>*/}
 					{/*<Model loading={this.loading}/>*/}
-					<ControlPanel/>
-					<Selector />
+					<ControlPanel selector={this.selector}/>
+					<Selector ref={this.selector} />
 				</div>
 			</ThemeProvider>
 		);

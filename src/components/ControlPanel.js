@@ -22,6 +22,10 @@ class ControlPanel extends Component {
 		
 	}
 	
+	showSelector = () => {
+		this.props.selector.current.show();
+	};
+	
 	drawImage = (img) => {
 		
 		let context = document.getElementById( "predictionResult" ).getContext( "2d" );
@@ -83,7 +87,8 @@ class ControlPanel extends Component {
 				        icon='add_photo_alternate'
 				        label={"Select"}
 				        raised
-				        accent />
+				        accent
+				        onClick={this.showSelector.bind(this)} />
 				<Button className={"reset-trigger"}
 				        icon='replay'
 				        label={"Reset"}
