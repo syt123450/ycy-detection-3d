@@ -5,12 +5,6 @@ let gridShape = [ 13, 13 ];
 
 let anchors =  [ 1.08, 1.19, 3.42, 4.41, 6.63, 11.38, 9.42, 5.11, 16.62, 10.52 ];
 
-let	classes =  [ "aeroplane", "bicycle", "bird", "boat", "bottle",
-	"bus", "car", "cat", "chair", "cow",
-	"diningtable", "dog", "horse", "motorbike", "person",
-	"pottedplant", "sheep", "sofa", "train", "tvmonitor" ];
-
-
 function sigmoid( x ) {
 	
 	return 1 / ( 1 + Math.pow( Math.E, - x ) );
@@ -155,8 +149,6 @@ function getDetectionBox( outputData ) {
 				
 				let bestClassIndex = classPrediction.indexOf( Math.max( ...classPrediction ) );
 				
-				let bestClassLabel = classes[ bestClassIndex ];
-				
 				let bestClassScore = classPrediction[ bestClassIndex ];
 				
 				let finalScore = bestClassScore * finalConfidence;
@@ -174,8 +166,7 @@ function getDetectionBox( outputData ) {
 						"y": y,
 						"width": width,
 						"height": height,
-						"finalScore": finalScore,
-						"className": bestClassLabel
+						"finalScore": finalScore
 						
 					} );
 					
