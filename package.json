@@ -10,12 +10,19 @@
     "react-toolbox-themr": "^1.0.2",
     "tensorspace": "^0.4.0"
   },
+  "devDependencies": {
+    "all-contributors-cli": "^5.3.0",
+    "gh-pages": "^2.0.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "toolbox": "react-toolbox-themr"
+    "toolbox": "react-toolbox-themr",
+    "deploy": "gh-pages -d build",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -25,5 +32,13 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
+  ],
+  "author": "syt123450",
+  "contributors": [
+    {
+      "name": "syt123450",
+      "email": "syt123450@gmail.com",
+      "url": "https://github.com/syt123450"
+    }
   ]
 }
