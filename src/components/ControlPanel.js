@@ -23,8 +23,8 @@ class ControlPanel extends Component {
 		let img = new Image();
 		img.onload = function() {
 			
-			let context = document.getElementById('predictionResult').
-				getContext('2d');
+			let context = document.getElementById('predictionResult')
+			.getContext('2d');
 			context.clearRect(0, 0, 208, 208);
 			context.drawImage(img, 0, 0);
 			

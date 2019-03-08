@@ -50,3 +50,9 @@
 .reset-trigger {
     margin-left: 16px;
 }
+
+@media (max-width: 500px) {
+    .control-panel {
+        /*display: none;*/
+    }
+}

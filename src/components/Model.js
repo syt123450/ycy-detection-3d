@@ -19,7 +19,7 @@ class Model extends Component {
 		
 		let model = new TSP.models.Sequential(modelContainer, {
 			
-			animeTime: 1000,
+			animeTime: 1000
 			
 		});
 		
@@ -27,7 +27,7 @@ class Model extends Component {
 		
 		model.add(new TSP.layers.RGBInput({
 			
-			shape: [416, 416, 3],
+			shape: [416, 416, 3]
 			
 		}));
 		
@@ -37,14 +37,14 @@ class Model extends Component {
 			filters: 16,
 			strides: 1,
 			padding: 'same',
-			initStatus: 'open',
+			initStatus: 'open'
 			
 		}));
 		
 		model.add(new TSP.layers.Pooling2d({
 			
 			poolSize: [2, 2],
-			strides: [2, 2],
+			strides: [2, 2]
 			
 		}));
 		
@@ -53,14 +53,14 @@ class Model extends Component {
 			kernelSize: 3,
 			filters: 32,
 			strides: 1,
-			padding: 'same',
+			padding: 'same'
 			
 		}));
 		
 		model.add(new TSP.layers.Pooling2d({
 			
 			poolSize: [2, 2],
-			strides: [2, 2],
+			strides: [2, 2]
 			
 		}));
 		
@@ -69,14 +69,14 @@ class Model extends Component {
 			kernelSize: 3,
 			filters: 64,
 			strides: 1,
-			padding: 'same',
+			padding: 'same'
 			
 		}));
 		
 		model.add(new TSP.layers.Pooling2d({
 			
 			poolSize: [2, 2],
-			strides: [2, 2],
+			strides: [2, 2]
 			
 		}));
 		
@@ -85,14 +85,14 @@ class Model extends Component {
 			kernelSize: 3,
 			filters: 128,
 			strides: 1,
-			padding: 'same',
+			padding: 'same'
 			
 		}));
 		
 		model.add(new TSP.layers.Pooling2d({
 			
 			poolSize: [2, 2],
-			strides: [2, 2],
+			strides: [2, 2]
 			
 		}));
 		
@@ -101,14 +101,14 @@ class Model extends Component {
 			kernelSize: 3,
 			filters: 256,
 			strides: 1,
-			padding: 'same',
+			padding: 'same'
 			
 		}));
 		
 		model.add(new TSP.layers.Pooling2d({
 			
 			poolSize: [2, 2],
-			strides: [2, 2],
+			strides: [2, 2]
 			
 		}));
 		
@@ -117,7 +117,7 @@ class Model extends Component {
 			kernelSize: 3,
 			filters: 512,
 			strides: 1,
-			padding: 'same',
+			padding: 'same'
 			
 		}));
 		
@@ -125,7 +125,7 @@ class Model extends Component {
 			
 			poolSize: [2, 2],
 			strides: [1, 1],
-			padding: 'same',
+			padding: 'same'
 			
 		}));
 		
@@ -134,7 +134,7 @@ class Model extends Component {
 			kernelSize: 3,
 			filters: 1024,
 			strides: 1,
-			padding: 'same',
+			padding: 'same'
 			
 		}));
 		
@@ -143,7 +143,7 @@ class Model extends Component {
 			kernelSize: 3,
 			filters: 512,
 			strides: 1,
-			padding: 'same',
+			padding: 'same'
 			
 		}));
 		
@@ -151,7 +151,7 @@ class Model extends Component {
 			
 			kernelSize: 1,
 			filters: 125,
-			strides: 1,
+			strides: 1
 			
 		}));
 		
@@ -184,11 +184,10 @@ class Model extends Component {
 		
 		model.init(function() {
 			
-			fetch(DataLookup[INIT_DATA].dataUrl).
-				then(res => res.json()).
-				then(data => {
+			fetch(DataLookup[INIT_DATA].dataUrl)
+			.then(res => res.json())
+			.then(data => {
 					model.predict(data, function(result) {
-						
 						let boxes = getDetectionBox(result);
 						outputDetectionLayer.addRectangleList(boxes);
 						context.props.panel.current.drawPrediction(boxes);
