@@ -1,0 +1,106 @@
+.data-selector {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 21;
+    box-sizing: border-box;
+    background-color: rgba(2, 36, 47, 0.2);
+    border: 1px solid #4C9BBB;
+    transition: all 1s;
+    /*display: none;*/
+    overflow-x: hidden;
+}
+
+.data-selector > header {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-bottom: 1px solid #6597AF;
+    box-sizing: border-box;
+    text-align: center;
+    color: #D6FDFF;
+}
+
+.data-selector > main {
+    padding-top: 0;
+    width: 100%;
+    height: calc( 100% - 100px );
+    border-bottom: 1px solid #6597AF;
+    box-sizing: border-box;
+    display: block;
+    overflow: scroll;
+}
+
+.data-selector > footer {
+    width: 100%;
+    height: 50px;
+    clear: both;
+    position: relative;
+}
+
+.data-selector > footer > button {
+    top: 10px;
+    height: 30px;
+    line-height: 30px;
+    width: 80px;
+    border: 1px solid #6597AF;
+    box-sizing: border-box;
+    color: #D6FDFF;
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+.execute-predict, .cancel-predict {
+    color: #D7FDFF!important;
+    background-color: rgba(84, 140, 169, 0.4)!important;
+}
+
+.execute-predict {
+    right: 140px;
+}
+
+.cancel-predict {
+    right: 20px;
+}
+
+.data-selector > main > div {
+    width: 33.3%;
+    height: 210px;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+}
+
+.data-selector > main > div > img {
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.5s;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.data-selector > main > div > img:hover{
+    transform: scale(1.03);
+}
+
+#selectorCurtain {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    background-color: #000;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    transition: all 1s;
+    display: none;
+}

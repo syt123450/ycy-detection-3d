@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../css/ControlPanel.css';
+import Button from 'react-toolbox/lib/button/Button';
 
 class ControlPanel extends Component {
 	
@@ -76,7 +77,18 @@ class ControlPanel extends Component {
 				
 				<div className="panelTitle">YOLOv2-Tiny</div>
 				
-				<canvas id="predictionResult" width="208" height="208"></canvas>
+				<canvas id="predictionResult" width="208" height="208" />
+				
+				<Button className={"select-trigger"}
+				        icon='add_photo_alternate'
+				        label={"Select"}
+				        raised
+				        accent />
+				<Button className={"reset-trigger"}
+				        icon='replay'
+				        label={"Reset"}
+				        raised
+				        accent />
 				
 			</div>
 		

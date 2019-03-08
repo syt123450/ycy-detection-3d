@@ -1,11 +1,11 @@
 #controlPanel {
     background-color: rgba(2, 36, 47, 0.2);
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
     width: 250px;
     height: 100%;
-    border-left: 1px solid #6597AF;
+    border-right: 1px solid #6597AF;
     box-sizing: border-box;
     overflow: auto;
     z-index: 1;
@@ -22,4 +22,18 @@
 
 #predictionResult {
     margin-left: 21px;
+}
+
+.select-trigger, .reset-trigger {
+    margin-top: 20px;
+    color: #D7FDFF!important;
+    background-color: rgba(84, 140, 169, 0.4)!important;
+}
+
+.select-trigger {
+    margin-left: 21px;
+}
+
+.reset-trigger {
+    margin-left: 16px;
 }
