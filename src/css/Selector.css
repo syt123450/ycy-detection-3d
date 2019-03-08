@@ -118,3 +118,22 @@
 .unselected-item {
     border: 0;
 }
+
+@media (max-width: 500px) {
+    .data-selector {
+        width: 400px;
+        margin: auto;
+    }
+
+    .data-selector > main > div {
+        width: 48%;
+    }
+
+    .execute-predict {
+        left: 60px;
+    }
+
+    .cancel-predict {
+        right: 60px;
+    }
+}
