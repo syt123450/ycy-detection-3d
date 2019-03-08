@@ -21,9 +21,10 @@ class ControlPanel extends Component {
 	drawImage = (dataID) => {
 		
 		let img = new Image();
-		img.onload = function () {
+		img.onload = function() {
 			
-			let context = document.getElementById("predictionResult").getContext("2d");
+			let context = document.getElementById('predictionResult').
+				getContext('2d');
 			context.clearRect(0, 0, 208, 208);
 			context.drawImage(img, 0, 0);
 			
@@ -45,7 +46,7 @@ class ControlPanel extends Component {
 	
 	drawPrediction = (boxes) => {
 		
-		let ctx = document.getElementById("predictionResult").getContext("2d");
+		let ctx = document.getElementById('predictionResult').getContext('2d');
 		
 		for (let i = 0; i < boxes.length; i++) {
 			
@@ -56,7 +57,7 @@ class ControlPanel extends Component {
 				rectParameter.x / 2,
 				rectParameter.y / 2,
 				rectParameter.width / 2,
-				rectParameter.height / 2
+				rectParameter.height / 2,
 			);
 			ctx.stroke();
 			
@@ -74,26 +75,26 @@ class ControlPanel extends Component {
 	
 	render() {
 		return (
-			<div className={"control-panel"}>
+			<div className={'control-panel'}>
 				
-				<div className={"panel-title"}>如何优雅地捕捉超越？</div>
-				<div className={"sub-title"}>—— 3D神经网络 ——</div>
+				<div className={'panel-title'}>如何优雅地捕捉超越？</div>
+				<div className={'sub-title'}>—— 3D神经网络 ——</div>
 				
-				<canvas id="predictionResult" width="208" height="208" />
+				<canvas id="predictionResult" width="208" height="208"/>
 				
-				<Button className={"select-trigger"}
+				<Button className={'select-trigger'}
 				        icon='add_photo_alternate'
-				        label={"新的超越"}
+				        label={'新的超越'}
 				        raised
 				        accent
-				        onClick={this.showSelector.bind(this)} />
-				<Button className={"reset-trigger"}
+				        onClick={this.showSelector.bind(this)}/>
+				<Button className={'reset-trigger'}
 				        icon='replay'
-				        label={"我想静静"}
+				        label={'我想静静'}
 				        raised
 				        accent
-				        onClick={this.reset.bind(this)} />
-				
+				        onClick={this.reset.bind(this)}/>
+			
 			</div>
 		
 		);

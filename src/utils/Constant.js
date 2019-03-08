@@ -3,4 +3,4 @@
  */
 
 
-export const INIT_DATA = "data1";
+export const INIT_DATA = 'data1';

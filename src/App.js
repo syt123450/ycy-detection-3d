@@ -29,9 +29,12 @@ class App extends Component {
 			<ThemeProvider theme={theme}>
 				<div className={'container'}>
 					<Loading ref={this.loading}/>
-					<Model ref={this.model} loading={this.loading} panel={this.panel} />
-					<ControlPanel ref={this.panel} selector={this.selector} model={this.model} />
-					<Selector ref={this.selector} model={this.model} panel={this.panel}/>
+					<Model ref={this.model} loading={this.loading}
+					       panel={this.panel}/>
+					<ControlPanel ref={this.panel} selector={this.selector}
+					              model={this.model}/>
+					<Selector ref={this.selector} model={this.model}
+					          panel={this.panel}/>
 				</div>
 			</ThemeProvider>
 		);

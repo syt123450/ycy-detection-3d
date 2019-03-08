@@ -33,7 +33,7 @@
 .data-selector > main {
     padding-top: 0;
     width: 100%;
-    height: calc( 100% - 100px );
+    height: calc(100% - 100px);
     border-bottom: 1px solid #6597AF;
     box-sizing: border-box;
     display: block;
@@ -62,11 +62,11 @@
 }
 
 .execute-predict, .cancel-predict {
-    width: 110px!important;
-    color: #D7FDFF!important;
-    background-color: rgba(84, 140, 169, 0.4)!important;
-    text-align: center!important;
-    font-family: 'ZCOOL KuaiLe', cursive!important;
+    width: 110px !important;
+    color: #D7FDFF !important;
+    background-color: rgba(84, 140, 169, 0.4) !important;
+    text-align: center !important;
+    font-family: 'ZCOOL KuaiLe', cursive !important;
 }
 
 .execute-predict {
@@ -95,7 +95,7 @@
     box-sizing: border-box;
 }
 
-.data-selector > main > div > img:hover{
+.data-selector > main > div > img:hover {
     transform: scale(1.03);
 }
 

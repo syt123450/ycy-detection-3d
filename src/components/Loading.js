@@ -11,7 +11,7 @@ class Loading extends Component {
 		showLoading: true,
 		showDownLoadNotice: true,
 		showCreationNotice: false,
-		percentage: 0
+		percentage: 0,
 	};
 	
 	updateProgress = (fraction) => {
@@ -23,7 +23,7 @@ class Loading extends Component {
 	showCreation = () => {
 		this.setState({
 			showDownLoadNotice: false,
-			showCreationNotice: true
+			showCreationNotice: true,
 		});
 	};
 	
@@ -40,12 +40,13 @@ class Loading extends Component {
 					<div className="loading-label">
 						{this.state.showDownLoadNotice ?
 							<div className="download-notice">正在载入一个神经网络 <span
-									className="download-progress">{this.state.percentage}%</span>
+								className="download-progress">{this.state.percentage}%</span>
 							</div> : null}
 						{this.state.showCreationNotice ?
 							<div>载入完毕！立即填装 3D 网络模型...</div> : null}
 					</div>
-					<img className={"loading"} alt="loading" src="./assets/img/loading.gif"/>
+					<img className={'loading'} alt="loading"
+					     src="./assets/img/loading.gif"/>
 				</div> : null}
 			</div>
 		
