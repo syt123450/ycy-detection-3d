@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import * as TSP from 'tensorspace';
+import { getDetectionBox } from './YoloUtils';
 
 class App extends Component {
 	
@@ -26,7 +27,8 @@ class App extends Component {
 			kernelSize: 3,
 			filters: 16,
 			strides: 1,
-			padding: "same"
+			padding: "same",
+			initStatus: "open"
 
 		} ) );
 
@@ -143,6 +145,15 @@ class App extends Component {
 			strides: 1
 
 		} ) );
+		
+		let outputDetectionLayer = new TSP.layers.OutputDetection( {
+			
+			name: "Detection",
+			initStatus: "open"
+			
+		} );
+		
+		model.add( outputDetectionLayer );
 
 		model.load( {
 
@@ -156,7 +167,13 @@ class App extends Component {
 		model.init( function() {
 
 			fetch('./assets/data/ycy_1.json').then(res => res.json()).then(data => {
-				model.predict(data);
+				model.predict(data, function(result) {
+				
+					let boxes = getDetectionBox(result);
+					outputDetectionLayer.addRectangleList( boxes );
+					
+				});
+				
 			});
 
 		} );
