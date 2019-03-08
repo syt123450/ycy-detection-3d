@@ -3,7 +3,7 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: PingFangSC-Regular, sans-serif;
+  font-family: 'ZCOOL KuaiLe', cursive!important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

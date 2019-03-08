@@ -6,10 +6,6 @@ import {INIT_DATA} from '../utils/Constant';
 
 class ControlPanel extends Component {
 	
-	state = {
-	
-	};
-	
 	componentDidMount() {
 		
 		this.drawImage(INIT_DATA);
@@ -87,19 +83,20 @@ class ControlPanel extends Component {
 		return (
 			<div id="controlPanel">
 				
-				<div className="panelTitle">YOLOv2-Tiny</div>
+				<div className={"panelTitle"}>如何捕获超越？</div>
+				<div className={"sub-title"}>—— 3D神经网络 ——</div>
 				
 				<canvas id="predictionResult" width="208" height="208" />
 				
 				<Button className={"select-trigger"}
 				        icon='add_photo_alternate'
-				        label={"Select"}
+				        label={"新的超越"}
 				        raised
 				        accent
 				        onClick={this.showSelector.bind(this)} />
 				<Button className={"reset-trigger"}
 				        icon='replay'
-				        label={"Reset"}
+				        label={"我想静静"}
 				        raised
 				        accent
 				        onClick={this.reset.bind(this)} />

@@ -8,10 +8,11 @@
     margin: auto;
     z-index: 21;
     box-sizing: border-box;
-    background-color: rgba(2, 36, 47, 0.2);
+    background-color: rgba(2, 36, 47, 0.5);
     border: 1px solid #4C9BBB;
     transition: all 1s;
     overflow-x: hidden;
+    border-radius: 3px;
 }
 
 .data-selector > header {
@@ -57,12 +58,15 @@
 }
 
 .execute-predict, .cancel-predict {
+    width: 110px!important;
     color: #D7FDFF!important;
     background-color: rgba(84, 140, 169, 0.4)!important;
+    text-align: center!important;
+    font-family: 'ZCOOL KuaiLe', cursive!important;
 }
 
 .execute-predict {
-    right: 140px;
+    right: 145px;
 }
 
 .cancel-predict {

@@ -47,7 +47,7 @@ class Selector extends Component {
 				{this.state.showSelector ?
 					<div>
 						<div className={"data-selector"}>
-							<header>Select an Image to Predict</header>
+							<header>野生的超越们跳出来了 OωO</header>
 							<main>
 								<div>
 									<img data-id="data1"
@@ -108,12 +108,12 @@ class Selector extends Component {
 							</main>
 							<footer>
 								<Button className={"execute-predict"}
-								        label={"Predict"}
+								        label={"就决定是你了！"}
 								        raised
 								        accent
 								        onClick={this.predict.bind(this)} />
 								<Button className={"cancel-predict"}
-								        label={"Cancel"}
+								        label={"好纠结 ＞﹏＜"}
 								        raised
 								        accent
 								        onClick={this.hide.bind(this)} />
