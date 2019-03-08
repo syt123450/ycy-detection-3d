@@ -1,3 +1,8 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
+
 let scoreThreshold = 0.18;
 let iouThreshold = 0.3;
 let outputShape = [ 416, 416 ];

@@ -1,3 +1,7 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
 import React, {Component} from 'react';
 import '../css/Loading.css';
 

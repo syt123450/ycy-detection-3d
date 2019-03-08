@@ -1,3 +1,7 @@
+/**
+ * @author syt123450 / https://github.com/syt123450
+ */
+
 import React, {Component} from 'react';
 import '../css/ControlPanel.css';
 import Button from 'react-toolbox/lib/button/Button';
@@ -83,7 +87,7 @@ class ControlPanel extends Component {
 		return (
 			<div id="controlPanel">
 				
-				<div className={"panelTitle"}>如何捕获超越？</div>
+				<div className={"panelTitle"}>如何优雅地捕捉超越？</div>
 				<div className={"sub-title"}>—— 3D神经网络 ——</div>
 				
 				<canvas id="predictionResult" width="208" height="208" />
