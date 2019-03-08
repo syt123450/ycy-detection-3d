@@ -8,7 +8,7 @@ import Button from 'react-toolbox/lib/button/Button';
 import {DataLookup} from '../utils/dataLookup';
 import {INIT_DATA} from '../utils/Constant';
 
-class ControlPanel extends Component {
+class MenuGroup extends Component {
 	
 	state = {
 		initialHide: false,
@@ -103,6 +103,8 @@ class ControlPanel extends Component {
 	showPanel = () => {
 		this.setState({
 			panelHidden: false,
+		}, function() {
+			this.drawImage(INIT_DATA);
 		});
 	};
 	
@@ -148,4 +150,4 @@ class ControlPanel extends Component {
 	}
 }
 
-export {ControlPanel};
+export {MenuGroup};

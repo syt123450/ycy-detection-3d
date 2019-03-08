@@ -11,7 +11,7 @@ import theme from './assets/react-toolbox/theme.js';
 import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
 import {Model} from './components/Model';
 import {Loading} from './components/Loading';
-import {ControlPanel} from './components/ControlPanel';
+import {MenuGroup} from './components/MenuGroup';
 import {Selector} from './components/Selector';
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
 					<Loading ref={this.loading}/>
 					<Model ref={this.model} loading={this.loading}
 					       panel={this.panel}/>
-					<ControlPanel ref={this.panel} selector={this.selector}
+					<MenuGroup ref={this.panel} selector={this.selector}
 					              model={this.model}/>
 					<Selector ref={this.selector} model={this.model}
 					          panel={this.panel}/>
