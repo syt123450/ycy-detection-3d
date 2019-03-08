@@ -35,13 +35,11 @@ class Loading extends Component {
 				{this.state.showLoading ? <div className="loading-pad">
 					<div className="loading-label">
 						{this.state.showDownLoadNotice ?
-							<div className="download-notice">Downloading Deep
-								Learning Model <span
+							<div className="download-notice">正在载入一个神经网络 <span
 									className="download-progress">{this.state.percentage}%</span>
 							</div> : null}
 						{this.state.showCreationNotice ?
-							<div>Download completed!
-								Creating 3D Neural Network...</div> : null}
+							<div>载入完毕！立即填装 3D 网络模型...</div> : null}
 					</div>
 					<img className={"loading"} alt="loading" src="./assets/img/loading.gif"/>
 				</div> : null}
