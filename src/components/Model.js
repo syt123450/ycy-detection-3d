@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import '../css/Model.css';
 import * as TSP from 'tensorspace';
 import {getDetectionBox} from '../utils/YoloUtils';
-import {DataLookup} from '../utils/dataLookup';
+import {DataLookup} from '../utils/DataLookup';
 import {INIT_DATA} from '../utils/Constant';
 
 class Model extends Component {
@@ -17,6 +17,7 @@ class Model extends Component {
 		
 		let modelContainer = document.getElementById('modelArea');
 		
+		// YOLOv2-tiny is a Sequential model.
 		let model = new TSP.models.Sequential(modelContainer, {
 			
 			animeTime: 1000
@@ -174,6 +175,7 @@ class Model extends Component {
 				'Maximum', 'MaxPool', 'Maximum_1', 'MaxPool_1', 'Maximum_2',
 				'MaxPool_2', 'Maximum_3', 'MaxPool_3', 'Maximum_4', 'MaxPool_4',
 				'Maximum_5', 'MaxPool_5', 'Maximum_6', 'Maximum_7', 'add_8'],
+			// Use the callback to control loading pad status.
 			onProgress: function(fraction) {
 				context.props.loading.current.updateProgress(fraction);
 			},
@@ -189,7 +191,9 @@ class Model extends Component {
 			.then(data => {
 					model.predict(data, function(result) {
 						let boxes = getDetectionBox(result);
+						// Draw detection boxes to outputDetectionLayer.
 						outputDetectionLayer.addRectangleList(boxes);
+						// Draw detection boxes to control panel image.
 						context.props.panel.current.drawPrediction(boxes);
 						
 						context.props.loading.current.hideLoading();

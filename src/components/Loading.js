@@ -14,6 +14,7 @@ class Loading extends Component {
 		percentage: 0,
 	};
 	
+	// fraction between 0 and 1.
 	updateProgress = (fraction) => {
 		this.setState({
 			percentage: ( 100 * fraction ).toFixed(2),

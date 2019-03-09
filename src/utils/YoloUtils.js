@@ -2,6 +2,11 @@
  * @author syt123450 / https://github.com/syt123450
  */
 
+/**
+ * YOLOv2-tiny post-processing algorithm,
+ * know more YOLO: https://pjreddie.com/darknet/yolo
+ */
+
 let scoreThreshold = 0.18;
 let iouThreshold = 0.3;
 let outputShape = [416, 416];

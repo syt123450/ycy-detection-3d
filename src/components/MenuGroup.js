@@ -5,13 +5,15 @@
 import React, {Component} from 'react';
 import '../css/ControlPanel.css';
 import Button from 'react-toolbox/lib/button/Button';
-import {DataLookup} from '../utils/dataLookup';
+import {DataLookup} from '../utils/DataLookup';
 import {INIT_DATA} from '../utils/Constant';
 
 class MenuGroup extends Component {
 	
 	state = {
+		// Used to control the display of close button.
 		initialHide: false,
+		// Used to control switch between menu button and control panel.
 		panelHidden: false,
 	};
 	
@@ -31,6 +33,7 @@ class MenuGroup extends Component {
 		this.props.selector.current.show();
 	};
 	
+	// Draw image onto canvas without detection boxes.
 	drawImage = (dataID) => {
 		
 		if (this.state.panelHidden) {
@@ -61,6 +64,7 @@ class MenuGroup extends Component {
 		
 	};
 	
+	// Draw detection boxes onto canvas image.
 	drawPrediction = (boxes) => {
 		
 		if (this.state.panelHidden) {
@@ -74,6 +78,7 @@ class MenuGroup extends Component {
 			let rectParameter = boxes[i];
 			
 			ctx.beginPath();
+			// Origin image is 416*416, draw half size onto 208*208
 			ctx.rect(
 				rectParameter.x / 2,
 				rectParameter.y / 2,
@@ -91,6 +96,7 @@ class MenuGroup extends Component {
 	};
 	
 	reset = () => {
+		// Use ref to reset the TensorSpace model.
 		this.props.model.current.reset();
 	};
 	
@@ -104,6 +110,7 @@ class MenuGroup extends Component {
 		this.setState({
 			panelHidden: false,
 		}, function() {
+			// Draw image data onto panel when panel element did mount.
 			this.drawImage(INIT_DATA);
 		});
 	};

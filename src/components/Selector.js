@@ -5,13 +5,15 @@
 import React, {Component} from 'react';
 import '../css/Selector.css';
 import Button from 'react-toolbox/lib/button/Button';
-import {DataLookup} from '../utils/dataLookup';
+import {DataLookup} from '../utils/DataLookup';
 import {INIT_DATA} from '../utils/Constant';
 
 class Selector extends Component {
 	
 	state = {
+		// Used to control the display of selector, triggered by "新的超越" button.
 		showSelector: false,
+		// Used to store currently selected data ID.
 		selectedData: INIT_DATA,
 	};
 	
@@ -28,7 +30,9 @@ class Selector extends Component {
 	};
 	
 	predict = () => {
+		// Predict Panel image.
 		this.props.panel.current.updatePanelImage(this.state.selectedData);
+		// Predict TensorSpace model.
 		this.props.model.current.predict(this.state.selectedData);
 		this.setState({
 			showSelector: false,
