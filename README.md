@@ -11,7 +11,7 @@
   <a href="https://github.com/tensorspace-team/tensorspace"><img src="https://img.shields.io/badge/dependencies-TensorSpace-brightgreen.svg" alt="dependencies badge"></a>
 </p>
 
-通过神经网络检测不同的杨超越照片，直观展示神经网络是如何从一张图片中检测物体的，类似于 [Lenna](https://baike.baidu.com/item/%E8%8E%B1%E5%A8%9C%C2%B7%E7%91%9F%E5%BE%B7%E8%B4%9D%E9%87%8C/10916076?fr=aladdin) 之于图片预处理。可在 Web3D 交互体验中感受神经网络的工作原理，移动端友好。
+通过神经网络检测不同的杨超越照片，直观展示神经网络是如何从一张图片中检测物体的，类似于 [Lenna](https://baike.baidu.com/item/%E8%8E%B1%E5%A8%9C%C2%B7%E7%91%9F%E5%BE%B7%E8%B4%9D%E9%87%8C/10916076?fr=aladdin) 之于图片预处理。可在 Web3D 交互体验中感受神经网络的工作原理，移动端友好。可用于神经网络学习与教学。
 
 <p align="center">
 <img width="100%" src="https://github.com/syt123450/ycy-detection-3d/blob/master/assets/helloworld.gif">
@@ -138,7 +138,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 
 ### 关于开源协议
 
-* 使用最宽松的 MIT 协议，可以对本仓库中的代码为所欲为。
+* 使用最宽松的 MIT 协议，在 fork 仓库之后，可以对 fork 仓库中的代码为所欲为。
 * 如果有一天它变成别的协议了（比如 GLP 等），那么应该是被盗号了，我会尽快向 Github 申诉。
 
 ### 关于功能复用
