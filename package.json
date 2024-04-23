@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "all-contributors-cli": "^5.3.0",
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
